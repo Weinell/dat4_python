@@ -1,6 +1,5 @@
 
 import argparse
-from genericpath import isdir
 import os
 
 
@@ -22,8 +21,17 @@ def get_all_file_names(folderpath, out='output.txt'):
         else:
             print("Unknown")
 
-def print_line_one(file_names):
-    return
+def print_line_one():
+    file_path = '/Users/weinell/Documents/Dev/CPH Business/4. Semester/Python/docker_notebooks/notebooks/_my_notebooks/Week 2/'
+    file_names = ['file1.csv', 'exercise.csv']
+    for file in os.listdir(file_path):
+        file = os.path.join(file_path,file)
+        if os.path.isfile(file):
+            with open(file) as file_object:
+                print(file_object)
+        elif os.path.isdir(file):
+            print('folder')
+        
 
 def print_emails(file_names):
     return
@@ -39,8 +47,10 @@ def write_headlines(md_files, out='output.txt'):
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--folderpath',required=True)
+    #parser.add_argument('--folderpath',required=True)
     args = parser.parse_args()
 
-    get_file_names(args.folderpath)
-    get_all_file_names('/Users/weinell/Documents/Dev/CPH Business/4. Semester/Python/docker_notebooks/notebooks/_my_notebooks/Week 2')
+    #get_file_names(args.folderpath)
+    #get_all_file_names('/Users/weinell/Documents/Dev/CPH Business/4. Semester/Python/docker_notebooks/notebooks/_my_notebooks/Week 2')
+    #print_line_one('/Users/weinell/Documents/Dev/CPH Business/4. Semester/Python/docker_notebooks/notebooks/_my_notebooks/Week 2/exercise.csv')
+    print_line_one()
