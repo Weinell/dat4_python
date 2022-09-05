@@ -1,11 +1,13 @@
 
 import argparse
+import os
 
 
-def get_file_names():#, out='output.txt'):
-    folderpath = '/Users/weinell/Documents/Dev/CPH Business/4. Semester/Python/docker_notebooks/notebooks/my_notebooks/Week 2'
-    print(folderpath)
-    return
+def get_file_names(folderpath, out='output.txt'):
+    with open(out, 'w') as file_object:
+        for file in os.listdir(folderpath):
+            file_object.write(file+'\n')
+
 
 def get_all_file_names(folderpath, out='output.txt'):
     return
@@ -28,4 +30,4 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
 
-    get_file_names()
+    get_file_names('/Users/weinell/Documents/Dev/CPH Business/4. Semester/Python/docker_notebooks/notebooks/_my_notebooks/Week 2')
